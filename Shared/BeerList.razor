@@ -1,5 +1,13 @@
 <div id="beerDetails">
-    <ul></ul>
+@foreach (Beer beer in Beers)
+{
+    <div class="beer">
+        <p>@beer.Name</p>
+        <div class="beerLabel">
+            <img src="@beer.Img" alt="Picture of label of the beer called @beer.Name" height="100px" width="100px" />
+        </div>
+    </div>
+}
 </div>
 
 @code 

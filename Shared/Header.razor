@@ -10,6 +10,9 @@
     private string SearchTerm { get; set; }
     private void DoSearch()
     {
-        Console.WriteLine(search.DoSearch(SearchTerm));
+        if (!String.IsNullOrWhiteSpace(SearchTerm))
+        {
+            Console.WriteLine(search.DoSearch(SearchTerm));
+        }
     }
 }
