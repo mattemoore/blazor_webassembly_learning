@@ -1,0 +1,19 @@
+<Modal Title=@Beer.Name HTMLContent=@BeerToHTML() />
+
+@code 
+{
+    [Parameter]
+    public Beer Beer {get; set;}
+    
+    public string BeerToHTML()
+    {
+        return $@"
+            <img src={Beer.Img}>
+            <ul>
+                <li>Test Beer Detail List Item</li>
+                <li>Another Detail Item</li>
+            </ul>
+        ";
+    }
+
+}
