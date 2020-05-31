@@ -8,11 +8,13 @@
 @code 
 {
     private string SearchTerm { get; set; }
-    private void DoSearch()
+    private async void DoSearch()
     {
         if (!String.IsNullOrWhiteSpace(SearchTerm))
         {
-            Console.WriteLine(SearchService.DoSearch(SearchTerm));
+            await SearchService.DoSearchAsync(SearchTerm);
         }
+        // We do nothing after `await` right but we could do something  here
+        // like re-enabling the Search button if we disabled it during search
     }
 }
