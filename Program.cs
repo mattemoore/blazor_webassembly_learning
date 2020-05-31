@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Blazored.Modal;
 
 namespace BeerApplication
 {
@@ -17,7 +18,7 @@ namespace BeerApplication
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
             builder.Services.AddTransient(sp => new Services.BeerSearchService());
-            builder.Services.AddTransient(sp => new Services.ModalService());
+            builder.Services.AddBlazoredModal();
             await builder.Build().RunAsync();
         }
     }

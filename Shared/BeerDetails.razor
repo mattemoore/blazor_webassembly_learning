@@ -1,19 +1,22 @@
-@inject ModalService modal
+@inject IModalService ModalService
+
+<img src={Beer.Img}>
+<ul>
+    <li>Test Beer Detail List Item</li>
+    <li>Another Detail Item</li>
+</ul>
+
 
 @code 
 {
+    [CascadingParameter] BlazoredModalInstance BlazoredModal { get; set; }
+
     [Parameter]
     public Beer Beer {get; set;}
     
-    public string BeerToHTML()
+    public void Close()
     {
-        return $@"
-            <img src={Beer.Img}>
-            <ul>
-                <li>Test Beer Detail List Item</li>
-                <li>Another Detail Item</li>
-            </ul>
-        ";
+        BlazoredModal.Close(ModalResult.Ok<Beer>(Beer));
     }
 
 }

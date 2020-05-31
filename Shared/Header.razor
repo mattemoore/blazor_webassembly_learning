@@ -1,4 +1,4 @@
-@inject BeerSearchService search
+@inject BeerSearchService SearchService
 
 <div class="flex-fill form-inline px-2 py-2" style="background-color:#272727;">
     <input @bind="SearchTerm" type="text" class="form-control" placeholder="e.g. Hops" size="20" />
@@ -12,7 +12,7 @@
     {
         if (!String.IsNullOrWhiteSpace(SearchTerm))
         {
-            Console.WriteLine(search.DoSearch(SearchTerm));
+            Console.WriteLine(SearchService.DoSearch(SearchTerm));
         }
     }
 }

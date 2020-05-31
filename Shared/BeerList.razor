@@ -1,4 +1,4 @@
-@inject ModalService ModalService
+@inject IModalService ModalService
 
 <div id="beerDetails">
 @foreach (Beer beer in Beers)
@@ -8,6 +8,7 @@
         <div class="beerLabel">
             <img src="@beer.Img" alt="Picture of label of the beer called @beer.Name" height="100px" width="100px" />
         </div>
+        <button @onlick="ShowBeerDetails(beer.Id)">Show Details</button>
     </div>
 }
 </div>
@@ -15,5 +16,13 @@
 @code 
 {
     [Parameter]
-    public List<Beer> Beers { get; set;}
+    public List<Beer> Beers { get; set; }
+
+    private void ShowBeerDetails(int id) 
+    {
+        ModalParameters parameters = new ModalParameters();
+        Beer beer = Beers.First(s => s.Id == id);
+        parameters.Add(nameof(Beer), beer);
+        ModalService.Show<BeerDetails>(beer.Name, parameters);
+    }
 }
