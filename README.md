@@ -1,5 +1,9 @@
 # Blazor_webassembly_learning
 
+## Get Started
+1. Install .NET core 3.1.3
+2. `dotnet add package Blazored.Modal`
+
  Implementation of the usual Punk API beer search single-page app to learn new frontend framework.
 
 Current ASP.NET landscape:
