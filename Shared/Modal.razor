@@ -1,18 +1,8 @@
 <!-- https://www.telerik.com/blogs/creating-a-reusable-javascript-free-blazor-modal -->
+@inherits ModalBase
 <div>
     <h5>@Title</h5>
     <div>
-        @HTMLContent
+        @Content
     </div>
 </div>
-
-
-
-@code 
-{
-    [Parameter]
-    public string Title {get; set;}
-
-    [Parameter]
-    public string HTMLContent {get; set;}
-}

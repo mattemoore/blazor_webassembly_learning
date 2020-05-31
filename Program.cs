@@ -16,8 +16,8 @@ namespace BeerApplication
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
-            builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddTransient(sp => new Services.BeerSearchService());
+            builder.Services.AddTransient(sp => new Services.ModalService());
             await builder.Build().RunAsync();
         }
     }
