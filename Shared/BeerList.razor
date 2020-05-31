@@ -1,22 +1,31 @@
 @inject IModalService ModalService
 
-<div id="beerDetails">
-@foreach (Beer beer in Beers)
+
+@if (Beers.Length == 0)
 {
-    <div class="beer">
-        <p>@beer.Name</p>
-        <div class="beerLabel">
-            <img src="@beer.Img" alt="Picture of label of the beer called @beer.Name" height="100px" width="100px" />
-        </div>
-        <button @onlick="ShowBeerDetails(beer.Id)">Show Details</button>
-    </div>
+    <p>Sorry, didn't find any beers.</p>
 }
-</div>
+else
+{
+    @foreach (Beer beer in Beers)
+    {
+        <!--TODO: Style this -->
+        <div id="beerDetails">
+            <div class="beer">
+                <p>@beer.Name</p>
+                <div class="beerLabel">
+                    <img src="@beer.Img" alt="Picture of label of the beer called @beer.Name" height="100px" width="100px" />
+                </div>
+                <button @onlick="ShowBeerDetails(beer.Id)">Show Details</button>
+            </div>
+        </div>
+    }
+}
 
 @code 
 {
     [Parameter]
-    public List<Beer> Beers { get; set; }
+    public Beer[] Beers { get; set; }
 
     private void ShowBeerDetails(int id) 
     {

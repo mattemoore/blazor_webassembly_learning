@@ -1,5 +1,7 @@
 ﻿@page "/"
-@if (_beers == null)
+@inject BeerSearchService SearchService
+
+@if(_beers == null)
 { 
     <h5>Search for beer using the Punk API</h5>
     <hr />
@@ -7,17 +9,19 @@
 }
 else 
 {
-    <BeerList BeerList="@_beers" />
+    <BeerList Beers="@_beers" />
 }
 
 @code 
 {
-    private List<Beer> _beers = null;
-    
-    // TODO: Subscribe to SearchCompletedEvent emitted by BeerSearchSErvice
-    //       and then call this to update UI
-    public void SearchCompleted(List<Beer> beers) 
+    private Beer[] _beers = null;
+
+    protected override void OnInitialized()
     {
-        _beers = beers;
+        SearchService.SearchCompleted += (beers) =>
+        {
+            _beers = beers;
+            StateHasChanged();
+        };
     }
 }
