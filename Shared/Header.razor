@@ -1,0 +1,15 @@
+@inject BeerSearchService search
+
+<div class="flex-fill form-inline px-2 py-2" style="background-color:#272727;">
+    <input @bind="SearchTerm" type="text" class="form-control" placeholder="e.g. Hops" size="20" />
+    <button type="submit" class="btn btn-primary" style="margin-left:10px" @onclick="DoSearch">Search Beer</button>
+</div>
+
+@code 
+{
+    private string SearchTerm { get; set; }
+    private void DoSearch()
+    {
+        Console.WriteLine(search.DoSearch(SearchTerm));
+    }
+}

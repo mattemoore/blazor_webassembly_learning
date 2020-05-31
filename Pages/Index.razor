@@ -1,9 +1,23 @@
 ﻿@page "/"
+@if (_beers == null)
+{ 
+    <h5>Search for beer using the Punk API</h5>
+    <hr />
+    <p>Type in a search string in the box above and click Search Beer.</p>
+}
+else 
+{
+    <BeerList BeerList="@_beers" />
+}
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="333How is Blazor working for you?" />
-
-<Counter />
+@code 
+{
+    private List<Beer> _beers = null;
+    
+    // TODO: Subscribe to SearchCompletedEvent emitted by BeerSearchSErvice
+    //       and then call this to update UI
+    public void SearchCompleted(List<Beer> beers) 
+    {
+        _beers = beers;
+    }
+}

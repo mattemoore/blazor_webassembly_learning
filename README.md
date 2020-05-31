@@ -1,6 +1,6 @@
 # Blazor_webassembly_learning
 
-Regular implementation of beer single-page app to learn new Frontend framework.
+ Implementation of the usual Punk API beer search single-page app to learn new frontend framework.
 
 Current ASP.NET landscape:
 - MVC (not single page app, server renders html and sends to client)
