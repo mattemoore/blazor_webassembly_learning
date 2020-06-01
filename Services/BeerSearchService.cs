@@ -23,7 +23,6 @@ namespace BeerApplication.Services
         public event Action<Beer[]> SearchCompleted;
         public async Task<Beer[]> DoSearchAsync(string searchString)
         {
-            // TODO: "Serialize" more of the Beer properties
             beers = await _httpClient.GetFromJsonAsync<Beer[]>($"beers?beer_name={searchString}");
             SearchCompleted?.Invoke(beers);
             return beers;

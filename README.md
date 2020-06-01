@@ -3,6 +3,7 @@
 ## Get Started
 1. Install .NET core 3.1.3
 2. `dotnet add package Blazored.Modal`
+3. `dotnet watch run`
 
  Implementation of the usual Punk API beer search single-page app to learn new frontend framework.
 
