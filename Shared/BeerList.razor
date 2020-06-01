@@ -7,19 +7,17 @@
 }
 else
 {
+    <div id="beerDetails" class="flex-container row">
     @foreach (Beer beer in Beers)
     {
-        <!--TODO: Style this -->
-        <div id="beerDetails">
-            <div class="beer">
-                <p>@beer.Name</p>
-                <div class="beerLabel">
-                    <img src="@beer.Img" alt="Picture of label of the beer called @beer.Name" height="100px" width="100px" />
-                </div>
-                <button @onlick="ShowBeerDetails(beer.Id)">Show Details</button>
+        <div class="beer flex-item" @onclick="@(() => ShowBeerDetails(beer.Id))">
+            <p>@beer.Name</p>
+            <div class="beerLabel">
+                <img src="@beer.image_url" alt="Picture of beer called @beer.Name" />
             </div>
         </div>
     }
+    </div>
 }
 
 @code 

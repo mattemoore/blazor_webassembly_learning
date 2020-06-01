@@ -1,6 +1,6 @@
 @inject IModalService ModalService
 
-<img src={Beer.Img}>
+<img src=@Beer.image_url>
 <ul>
     <li>Test Beer Detail List Item</li>
     <li>Another Detail Item</li>
@@ -9,7 +9,8 @@
 
 @code 
 {
-    [CascadingParameter] BlazoredModalInstance BlazoredModal { get; set; }
+    [CascadingParameter] 
+    BlazoredModalInstance BlazoredModal { get; set; }
 
     [Parameter]
     public Beer Beer {get; set;}

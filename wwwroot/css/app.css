@@ -50,3 +50,34 @@ app {
     right: 0.75rem;
     top: 0.5rem;
 }
+  
+img {
+display: block;
+margin-left: auto;
+margin-right: auto;
+padding-top: 10px;
+width: 85px;
+height: 200px;
+}
+
+.beer {
+width: 200px;
+padding: 20px 10px;
+margin: 10px;
+font-family: sans-serif;
+color: #EFF1F3;
+text-align: center;
+background-color: #009FB7;
+border-radius: 10px;
+}
+
+.beer p {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+.beer:hover {
+background-color: #FED766;
+cursor: grab;
+}
