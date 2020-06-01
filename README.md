@@ -3,7 +3,9 @@
 ## Get Started
 1. Install .NET core 3.1.3
 2. `dotnet add package Blazored.Modal`
-3. `dotnet watch run`
+3. `dotnet watch run` for debugging locally
+4. `make deploy` to deploy release build to "production" container
+5. NOTE: Info entry in browser console log about WebAssembly compilation faillback in Chrome but not in FF.  
 
  Implementation of the usual Punk API beer search single-page app to learn new frontend framework.
 
