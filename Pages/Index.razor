@@ -1,9 +1,21 @@
 ﻿@page "/"
+@using  System.Globalization
 @inject BeerSearchService SearchService
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Index> Loc
+@inject IJSRuntime JSRuntime
+@inject NavigationManager Nav
+
+<strong>Culture:</strong>
+<select @bind="Culture">
+@foreach (var culture in supportedCultures)
+{
+    <option value="@culture">@culture.DisplayName</option>
+}
+</select>
 
 @if(_beers == null)
 { 
-    <h5>Search for beer using the Punk API</h5>
+    <h5>@Loc["Greetings"] - Search for beer using the Punk API</h5>
     <hr />
     <p>Type in a search string in the box above and click Search Beer.</p>
 }
@@ -26,5 +38,25 @@ else
             _beers = beers;
             StateHasChanged();
         };
+    }
+
+    CultureInfo[] supportedCultures = new[]
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("fr-FR"),
+    };
+
+    CultureInfo Culture
+    {
+        get => CultureInfo.CurrentCulture;
+        set
+        {
+            if (CultureInfo.CurrentCulture != value)
+            {
+                var js = (IJSInProcessRuntime)JSRuntime;
+                js.InvokeVoid("blazorCulture.set", value.Name);
+                Nav.NavigateTo(Nav.Uri, forceLoad: true);
+            }
+        }
     }
 }
