@@ -1,5 +1,3 @@
-# TODO: implement production deployment in container behind nginx
-
 .PHONY: deploy
 deploy: clean publish
 	docker build -t blazorapp -f ci/Dockerfile .
